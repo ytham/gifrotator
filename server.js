@@ -1,16 +1,19 @@
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
+var connect = require('connect');
 
 var secret = require('./secret');
 var mongoConnection = "mongodb://" + secret.user + ":" + secret.password + "@oceanic.mongohq.com:10093/gifro";
 
 mongoose.connect(mongoConnection);
 
-app.use(express.static(__dirname + '/public'));     // set the static files location /public/img will be /img for users
-app.use(express.logger('dev'));             // log every request to the console
-app.use(express.bodyParser());              // pull information from html in POST
-app.use(express.methodOverride());            // simulate DELETE and PUT
+//var conn = connect();
+//conn.use(require('morgan'));
+app.use(connect.static(__dirname + '/public'));     // set the static files location /public/img will be /img for users
+app.use(connect.logger('dev'));
+app.use(connect.bodyParser());              // pull information from html in POST
+app.use(connect.methodOverride());            // simulate DELETE and PUT
 
 
 
