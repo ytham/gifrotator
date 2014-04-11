@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var connect = require('connect');
 
 var secret = require('./secret');
-var mongoConnection = "mongodb://" + secret.user + ":" + secret.password + "@oceanic.mongohq.com:10093/gifro";
+var mongoConnection = "mongodb://" + secret.user + ":" + secret.password + "@46.149.29.195:28017/gifro";
 
 mongoose.connect(mongoConnection);
 
